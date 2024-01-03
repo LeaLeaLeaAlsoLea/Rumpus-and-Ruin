@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2xy5gr6ra8ke"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Player/idle.gd" id="1_uxmpk"]
+
+[node name="IDLE" type="Node"]
+script = ExtResource("1_uxmpk")
