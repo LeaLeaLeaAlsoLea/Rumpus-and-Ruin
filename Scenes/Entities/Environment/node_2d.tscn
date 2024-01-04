@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c88xoxxwx68ty"]
 
 [ext_resource type="Texture2D" uid="uid://d26s07ukls7ei" path="res://icon.svg" id="1_dnbcg"]
-[ext_resource type="Texture2D" uid="uid://mg0m5ya0mvff" path="res://Scenes/Entities/Environment/360_F_473342226_mGRsjBL2bTou0qLefOEnOMAb2lTRI0wm.jpg" id="1_iwa54"]
+[ext_resource type="Texture2D" uid="uid://mg0m5ya0mvff" path="res://Art/360_F_473342226_mGRsjBL2bTou0qLefOEnOMAb2lTRI0wm.jpg" id="1_pt54g"]
 [ext_resource type="PackedScene" uid="uid://0j5a7la2ek5x" path="res://Scenes/Entities/Player/player.tscn" id="2_dyuql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phbec"]
@@ -12,7 +12,7 @@ size = Vector2(1278, 128)
 [node name="360F473342226MGRsjBl2bTou0qLefOEnOmAb2lTri0Wm" type="Sprite2D" parent="."]
 position = Vector2(599, 271)
 scale = Vector2(3.00692, 3.35278)
-texture = ExtResource("1_iwa54")
+texture = ExtResource("1_pt54g")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

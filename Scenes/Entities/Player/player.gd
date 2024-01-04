@@ -14,7 +14,7 @@ var climb_input = false
 var dash_input = false
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -800.0
 
 var current_state = null
 var prev_state = null
