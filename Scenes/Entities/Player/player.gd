@@ -40,7 +40,7 @@ func _ready():
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
 	$Label2.text = str("W,A,S,D to Move\n Space to Jump \n F to Dash" )
-		
+	
 func _physics_process(delta):
 	player_input()
 	change_state(current_state.update(delta))
