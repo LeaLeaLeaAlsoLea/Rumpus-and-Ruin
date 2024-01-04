@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://0j5a7la2ek5x"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/Player/player.gd" id="1_tqwte"]
-[ext_resource type="Texture2D" uid="uid://d26s07ukls7ei" path="res://icon.svg" id="2_s4htx"]
+[ext_resource type="Texture2D" uid="uid://oec6oavjwjck" path="res://Untitled_Artwork.jpg" id="2_ip47e"]
 [ext_resource type="PackedScene" uid="uid://d2xy5gr6ra8ke" path="res://Scenes/Entities/Player/idle.tscn" id="3_2j68f"]
 [ext_resource type="Script" path="res://Scenes/Entities/Player/STATES.gd" id="3_lhk0h"]
 [ext_resource type="PackedScene" uid="uid://ccrowq1lb4s5p" path="res://Scenes/Entities/Player/fall.tscn" id="4_nigwf"]
@@ -15,7 +15,9 @@ size = Vector2(128, 127)
 script = ExtResource("1_tqwte")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_s4htx")
+position = Vector2(4.86374e-05, -0.499993)
+scale = Vector2(0.032, 0.0211667)
+texture = ExtResource("2_ip47e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
