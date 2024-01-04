@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mg0m5ya0mvff"
-path="res://.godot/imported/360_F_473342226_mGRsjBL2bTou0qLefOEnOMAb2lTRI0wm.jpg-f2d036124564aed7f7d75444fb1351aa.ctex"
+uid="uid://dv4k1i4pn4g1t"
+path="res://.godot/imported/Additional Sky.png-edf2988f6f23fce31ab0291b818d4c37.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Entities/Environment/360_F_473342226_mGRsjBL2bTou0qLefOEnOMAb2lTRI0wm.jpg"
-dest_files=["res://.godot/imported/360_F_473342226_mGRsjBL2bTou0qLefOEnOMAb2lTRI0wm.jpg-f2d036124564aed7f7d75444fb1351aa.ctex"]
+source_file="res://Art/Additional Sky.png"
+dest_files=["res://.godot/imported/Additional Sky.png-edf2988f6f23fce31ab0291b818d4c37.ctex"]
 
 [params]
 
