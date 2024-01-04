@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bue7dd21a1jng"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Player/dash.gd" id="1_mnthu"]
+
+[node name="DASH" type="Node"]
+script = ExtResource("1_mnthu")
+
+[node name="DashDuration" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DashDuration" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

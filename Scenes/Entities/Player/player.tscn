@@ -1,32 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://0j5a7la2ek5x"]
+[gd_scene load_steps=11 format=3 uid="uid://0j5a7la2ek5x"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/Player/player.gd" id="1_tqwte"]
 [ext_resource type="Texture2D" uid="uid://oec6oavjwjck" path="res://Untitled_Artwork.jpg" id="2_ip47e"]
 [ext_resource type="PackedScene" uid="uid://d2xy5gr6ra8ke" path="res://Scenes/Entities/Player/idle.tscn" id="3_2j68f"]
 [ext_resource type="Script" path="res://Scenes/Entities/Player/STATES.gd" id="3_lhk0h"]
+[ext_resource type="PackedScene" uid="uid://tsgqbq5mugeq" path="res://Scenes/Entities/Player/slide.tscn" id="4_igh6b"]
 [ext_resource type="PackedScene" uid="uid://ccrowq1lb4s5p" path="res://Scenes/Entities/Player/fall.tscn" id="4_nigwf"]
 [ext_resource type="PackedScene" uid="uid://df4yeurojg4ig" path="res://Scenes/Entities/Player/jump.tscn" id="5_tkoa6"]
 [ext_resource type="PackedScene" uid="uid://b88syj014uqfm" path="res://Scenes/Entities/Player/move.tscn" id="6_00mlv"]
+[ext_resource type="PackedScene" uid="uid://bue7dd21a1jng" path="res://Scenes/Entities/Player/dash.tscn" id="8_xxncj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg4ys"]
-size = Vector2(128, 127)
+size = Vector2(64, 95.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_tqwte")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4.86374e-05, -0.499993)
-scale = Vector2(0.032, 0.0211667)
+position = Vector2(9.53674e-07, -16.5)
+scale = Vector2(0.016, 0.0158333)
 texture = ExtResource("2_ip47e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, -16.75)
 shape = SubResource("RectangleShape2D_cg4ys")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("3_lhk0h")
+
+[node name="SLIDE" parent="STATES" instance=ExtResource("4_igh6b")]
 
 [node name="IDLE" parent="STATES" instance=ExtResource("3_2j68f")]
 
@@ -36,8 +40,38 @@ script = ExtResource("3_lhk0h")
 
 [node name="MOVE" parent="STATES" instance=ExtResource("6_00mlv")]
 
+[node name="DASH" parent="STATES" instance=ExtResource("8_xxncj")]
+
 [node name="Label" type="Label" parent="."]
 offset_left = -20.0
 offset_top = -91.0
 offset_right = 20.0
 offset_bottom = -68.0
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="TopRight" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -64)
+target_position = Vector2(38, 0)
+collision_mask = 2
+
+[node name="BottomRight" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 31)
+target_position = Vector2(38, 0)
+collision_mask = 2
+
+[node name="TopLeft" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -64)
+target_position = Vector2(-38, 0)
+collision_mask = 2
+
+[node name="BottomLeft" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 31)
+target_position = Vector2(-38, 0)
+collision_mask = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -563.0
+offset_top = -310.0
+offset_right = -346.0
+offset_bottom = -214.0

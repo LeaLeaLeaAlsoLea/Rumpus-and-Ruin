@@ -4,3 +4,7 @@
 
 [node name="FALL" type="Node"]
 script = ExtResource("1_jkyjb")
+
+[node name="CyoteTime" type="Timer" parent="."]
+
+[connection signal="timeout" from="CyoteTime" to="." method="_on_cyote_time_timeout"]

@@ -13,12 +13,24 @@ var jump_input_actuation = false
 var climb_input = false
 var dash_input = false
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -800.0
+#player_movement
+const SPEED = 400.0
+const JUMP_VELOCITY = -600.0
+var last_direction = Vector2.RIGHT
 
+#mechanics
+var can_dash = true
+var dash_count = 0
+var dash_max = 2
+var jump_count = 0
+var jump_max = 2
+
+#states
 var current_state = null
 var prev_state = null
 
+#nodes
+@onready var Raycasts = $Raycasts
 @onready var STATES = $STATES
 
 func _ready():
@@ -27,6 +39,7 @@ func _ready():
 		state.Player = self
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
+	$Label2.text = str("W,A,S,D to Move\n Space to Jump \n F to Dash" )
 		
 func _physics_process(delta):
 	player_input()
@@ -46,6 +59,16 @@ func change_state(input_state):
 		prev_state.exit_state()
 		current_state.enter_state()
 		
+func get_next_to_wall():
+	for raycast in Raycasts.get_children():
+		raycast.force_raycast_update()
+		if raycast.is_colliding():
+			if raycast.target_position.x > 0:
+				return Vector2.RIGHT
+			else:
+				return Vector2.LEFT
+	return null
+	
 func player_input():
 	movement_input = Vector2.ZERO
 	if Input.is_action_pressed("right"):
@@ -74,7 +97,7 @@ func player_input():
 		climb_input = false 
 		
 	#dash
-	if Input.is_action_pressed("dash"):
+	if Input.is_action_just_pressed("dash"):
 		dash_input = true
 	else:
 		dash_input = false 
