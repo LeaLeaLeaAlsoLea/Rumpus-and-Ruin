@@ -19,14 +19,10 @@ func enter_state():
 	Player.can_dash = false
 	dashing = true
 	DashDuration_timer.start(dash_duration)
-	if Player.prev_state == STATES.SLIDE:
-		dash_direction = -Player.last_direction
-	else:
-		dash_direction = Player.last_direction
+	dash_direction = Player.last_direction
 	Player.velocity = dash_direction.normalized() * dash_speed
 	
 	
-	print(Player.dash_count)
 func exit_state():
 	dashing = false
 

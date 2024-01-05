@@ -17,7 +17,7 @@ func update(delta):
 	return null
 	
 func slide_movement(delta):
-	player_movement()
+	player_movement(delta)
 	Player.gravity(delta)
 	Player.velocity.y *= slide_friction
 	

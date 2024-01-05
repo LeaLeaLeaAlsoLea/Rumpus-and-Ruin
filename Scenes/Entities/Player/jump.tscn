@@ -4,3 +4,8 @@
 
 [node name="JUMP" type="Node"]
 script = ExtResource("1_qbd8m")
+
+[node name="Air_time" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Air_time" to="." method="_on_timer_timeout"]

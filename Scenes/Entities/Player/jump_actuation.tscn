@@ -1,7 +1,8 @@
-extends "state.gd"
+[gd_scene load_steps=2 format=3 uid="uid://tnt6srl70c56"]
 
-@onready var Air_time = $Air_time
-@export var air_time_duration = 0.2
+[sub_resource type="GDScript" id="GDScript_aycq0"]
+script/source = "extends \"state.gd\"
+
 
 func update(delta):
 	Player.gravity(delta)
@@ -11,19 +12,14 @@ func update(delta):
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
 	if Player.jump_input_actuation and Player.jump_count < Player.jump_max:
-		return STATES.JUMP
-	if Player.jump_input_released and Player.velocity.y < Player.JUMP_VELOCITY / 2.5:
-		Player.velocity.y = Player.JUMP_VELOCITY / 2.5
-	
+		return STATES.JUMP_ACTUATION
+		
 	return null
-
 func enter_state():
 	Player.jump_count += 1
 	if Player.jump_input_actuation:
-		Player.velocity.y = Player.JUMP_VELOCITY
-	
+		Player.velocity.y = Player.JUMP_VELOCITY / 2
+"
 
-
-func _on_timer_timeout():
-	pass
-	
+[node name="JUMP_ACTUATION" type="Node"]
+script = SubResource("GDScript_aycq0")

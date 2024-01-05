@@ -10,12 +10,15 @@ var gravity_value = ProjectSettings.get_setting("physics/2d/default_gravity")
 var movement_input = Vector2.ZERO
 var jump_input = false
 var jump_input_actuation = false
+var jump_input_released = false
 var climb_input = false
 var dash_input = false
 
 #player_movement
-const SPEED = 400.0
+const SPEED = 450.0
 const JUMP_VELOCITY = -600.0
+const ACCELERATION = 1300.0
+const FRICTION = 3000.0
 var last_direction = Vector2.RIGHT
 
 #mechanics
@@ -50,6 +53,9 @@ func _physics_process(delta):
 func gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity_value * delta
+func gravity_fall(delta):
+	if not is_on_floor():
+		velocity.y += gravity_value * 1.4 * delta
 
 func change_state(input_state):
 	if input_state != null:
@@ -89,6 +95,10 @@ func player_input():
 		jump_input_actuation = true
 	else:
 		jump_input_actuation = false
+	if Input.is_action_just_released("jump"):
+		jump_input_released = true
+	else:
+		jump_input_released = false
 		
 	#climb
 	if Input.is_action_pressed("climb"):

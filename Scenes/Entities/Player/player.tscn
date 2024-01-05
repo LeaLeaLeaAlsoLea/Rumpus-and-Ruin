@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0j5a7la2ek5x"]
+[gd_scene load_steps=12 format=3 uid="uid://0j5a7la2ek5x"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/Player/player.gd" id="1_tqwte"]
 [ext_resource type="Texture2D" uid="uid://oec6oavjwjck" path="res://Untitled_Artwork.jpg" id="2_ip47e"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ccrowq1lb4s5p" path="res://Scenes/Entities/Player/fall.tscn" id="4_nigwf"]
 [ext_resource type="PackedScene" uid="uid://df4yeurojg4ig" path="res://Scenes/Entities/Player/jump.tscn" id="5_tkoa6"]
 [ext_resource type="PackedScene" uid="uid://b88syj014uqfm" path="res://Scenes/Entities/Player/move.tscn" id="6_00mlv"]
+[ext_resource type="PackedScene" uid="uid://tnt6srl70c56" path="res://Scenes/Entities/Player/jump_actuation.tscn" id="8_ve3ph"]
 [ext_resource type="PackedScene" uid="uid://bue7dd21a1jng" path="res://Scenes/Entities/Player/dash.tscn" id="8_xxncj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg4ys"]
@@ -37,6 +38,8 @@ script = ExtResource("3_lhk0h")
 [node name="FALL" parent="STATES" instance=ExtResource("4_nigwf")]
 
 [node name="JUMP" parent="STATES" instance=ExtResource("5_tkoa6")]
+
+[node name="JUMP_ACTUATION" parent="STATES" instance=ExtResource("8_ve3ph")]
 
 [node name="MOVE" parent="STATES" instance=ExtResource("6_00mlv")]
 
