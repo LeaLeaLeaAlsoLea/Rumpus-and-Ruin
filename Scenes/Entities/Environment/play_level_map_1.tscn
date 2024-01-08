@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://rb37gyixg7af"]
+[gd_scene load_steps=7 format=3 uid="uid://o30lp5g0x3em"]
 
-[ext_resource type="PackedScene" uid="uid://b4dwp2effkqtu" path="res://Scenes/Entities/Environment/Tile Map 1.tscn" id="1_nx5kn"]
+[ext_resource type="PackedScene" uid="uid://cqrhwq1u3elfk" path="res://Scenes/Entities/Environment/Tile Map 1.tscn" id="1_nx5kn"]
 [ext_resource type="PackedScene" uid="uid://0j5a7la2ek5x" path="res://Scenes/Entities/Player/player.tscn" id="2_06imc"]
 [ext_resource type="Texture2D" uid="uid://d4bs8wm1dual" path="res://Art/BG Image.png" id="2_680qi"]
+[ext_resource type="PackedScene" uid="uid://yvvgwud8se6r" path="res://Scenes/Entities/Coin Collectible/coin.tscn" id="4_w1u8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlvue"]
 texture = ExtResource("2_680qi")
@@ -75,3 +76,18 @@ scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_06imc")]
 position = Vector2(449, 407)
+
+[node name="Coin" parent="." instance=ExtResource("4_w1u8w")]
+position = Vector2(665, 471)
+
+[node name="Coin2" parent="." instance=ExtResource("4_w1u8w")]
+position = Vector2(1260, 44)
+
+[node name="Coin3" parent="." instance=ExtResource("4_w1u8w")]
+position = Vector2(376, 33)
+
+[node name="Coin4" parent="." instance=ExtResource("4_w1u8w")]
+position = Vector2(969, 330)
+
+[node name="Coin5" parent="." instance=ExtResource("4_w1u8w")]
+position = Vector2(200, -272)
