@@ -22,7 +22,6 @@ func enter_state():
 	dash_direction = Player.last_direction
 	Player.velocity = dash_direction.normalized() * dash_speed
 	
-	
 func exit_state():
 	dashing = false
 

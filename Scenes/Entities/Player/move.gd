@@ -4,8 +4,7 @@ extends "state.gd"
 func update(delta):
 	Player.gravity(delta)
 	player_movement(delta)
-	if Player.velocity.x == 0:
-		return STATES.IDLE
+	
 	if Player.velocity.y > 0:
 		return STATES.FALL
 	if Player.jump_input_actuation:
@@ -14,7 +13,8 @@ func update(delta):
 		return STATES.DASH
 	if Player.movement_input.x:
 		animation.play("Run")
-
+	if Player.velocity.x == 0:
+		return STATES.IDLE
 	return null
 func enter_state():
 	Player.jump_count = 0

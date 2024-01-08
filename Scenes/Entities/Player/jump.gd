@@ -14,12 +14,10 @@ func update(delta):
 	if Player.jump_input_released and Player.velocity.y < Player.JUMP_VELOCITY / 2.5:
 		Player.velocity.y = Player.JUMP_VELOCITY / 2.5
 	
-	return null
-
 func enter_state():
 	Player.jump_count += 1
-	if Player.jump_input_actuation:
-		Player.velocity.y = Player.JUMP_VELOCITY
+#	if Player.jump_input_actuation or jump_is_buffered:
+	Player.velocity.y = Player.JUMP_VELOCITY
 	animation.play("Jump")
 
 
