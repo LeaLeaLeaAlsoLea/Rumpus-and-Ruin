@@ -1,4 +1,5 @@
 extends "state.gd"
+@onready var animation = $"../../Animation"
 
 func update(delta):
 	Player.gravity(delta)
@@ -11,7 +12,14 @@ func update(delta):
 		return STATES.JUMP
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
+	if Player.movement_input.x:
+		animation.play("Run")
+
 	return null
 func enter_state():
 	Player.jump_count = 0
+	
 	pass
+	
+func exit_state():
+	animation.stop()

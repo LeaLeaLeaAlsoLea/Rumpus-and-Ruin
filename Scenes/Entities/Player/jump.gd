@@ -1,7 +1,6 @@
 extends "state.gd"
 
-@onready var Air_time = $Air_time
-@export var air_time_duration = 0.2
+@onready var animation = $"../../Animation"
 
 func update(delta):
 	Player.gravity(delta)
@@ -21,7 +20,7 @@ func enter_state():
 	Player.jump_count += 1
 	if Player.jump_input_actuation:
 		Player.velocity.y = Player.JUMP_VELOCITY
-	
+	animation.play("Jump")
 
 
 func _on_timer_timeout():

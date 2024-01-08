@@ -35,6 +35,7 @@ var prev_state = null
 #nodes
 @onready var Raycasts = $Raycasts
 @onready var STATES = $STATES
+@onready var animation = $Animation
 
 func _ready():
 	for state in STATES.get_children():
@@ -42,11 +43,11 @@ func _ready():
 		state.Player = self
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
-	$Label2.text = str("W,A,S,D to Move\n Space to Jump \n F to Dash" )
 	
 func _physics_process(delta):
 	player_input()
 	change_state(current_state.update(delta))
+	flip_sprite()
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
 	
@@ -112,3 +113,8 @@ func player_input():
 	else:
 		dash_input = false 
 	
+func flip_sprite():
+	if movement_input.x > 0:
+		animation.flip_h = false
+	elif movement_input.x <0:
+		animation.flip_h = true

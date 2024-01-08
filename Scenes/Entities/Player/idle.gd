@@ -1,5 +1,5 @@
 extends "state.gd"
-
+@onready var animation = $"../../Animation"
 
 func update(delta):
 	Player.gravity(delta)
@@ -12,7 +12,9 @@ func update(delta):
 		return STATES.FALL
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
+	animation.play("Idle")
 	return null
 func enter_state():
 	Player.jump_count = 0
+	
 	pass

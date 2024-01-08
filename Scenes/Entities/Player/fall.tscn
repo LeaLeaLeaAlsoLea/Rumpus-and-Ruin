@@ -7,8 +7,8 @@ script = ExtResource("1_jkyjb")
 
 [node name="CyoteTime" type="Timer" parent="."]
 
-[node name="AirTime" type="Timer" parent="."]
+[node name="JumpBuffer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="timeout" from="CyoteTime" to="." method="_on_cyote_time_timeout"]
-[connection signal="timeout" from="AirTime" to="." method="_on_air_time_timeout"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
