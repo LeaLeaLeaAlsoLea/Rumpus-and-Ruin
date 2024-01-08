@@ -83,7 +83,7 @@ libraries = {
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wdgc2")
 animation = &"Coin_spin"
-frame_progress = 0.311967
+frame_progress = 0.565313
 
 [connection signal="body_entered" from="." to="." method="_on_coin_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

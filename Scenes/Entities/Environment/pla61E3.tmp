@@ -91,16 +91,16 @@ position = Vector2(449, 407)
 position = Vector2(665, 471)
 
 [node name="Coin2" parent="." instance=ExtResource("4_w1u8w")]
-position = Vector2(964, 327)
+position = Vector2(1260, 44)
 
 [node name="Coin3" parent="." instance=ExtResource("4_w1u8w")]
-position = Vector2(1236, 322)
+position = Vector2(376, 33)
 
 [node name="Coin4" parent="." instance=ExtResource("4_w1u8w")]
-position = Vector2(388, 22)
+position = Vector2(969, 330)
 
 [node name="Coin5" parent="." instance=ExtResource("4_w1u8w")]
-position = Vector2(201, -241)
+position = Vector2(200, -272)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("5_iud4u")
@@ -143,7 +143,3 @@ theme_override_font_sizes/font_size = 40
 text = "##"
 
 [connection signal="coin_collected" from="Coin" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="Coin2" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="Coin3" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="Coin4" to="HUD" method="_on_coin_collected"]
-[connection signal="coin_collected" from="Coin5" to="HUD" method="_on_coin_collected"]

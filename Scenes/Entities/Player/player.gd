@@ -37,6 +37,9 @@ var prev_state = null
 @onready var STATES = $STATES
 @onready var animation = $Animation
 
+#interactibles
+var coins = 0
+
 func _ready():
 	for state in STATES.get_children():
 		state.STATES = STATES
@@ -118,3 +121,6 @@ func flip_sprite():
 		animation.flip_h = false
 	elif movement_input.x <0:
 		animation.flip_h = true
+
+func add_coin():
+	coins += 1
