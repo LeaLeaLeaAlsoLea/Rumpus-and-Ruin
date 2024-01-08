@@ -15,17 +15,12 @@ func update(delta):
 	if jump_is_buffered and Player.is_on_floor():
 		Player.jump_count = 0
 		return STATES.JUMP
-		
-	
-	
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
 	if Player.get_next_to_wall() != null:
 		return STATES.SLIDE
-		
 	if Player.jump_input_actuation and can_jump or Player.jump_input_actuation and Player.jump_count < Player.jump_max:
 		return STATES.JUMP
-		
 	if Player.jump_input_actuation and Player.jump_count >= Player.jump_max:
 		JumpBuffer.start(jump_buffer_time)
 		jump_is_buffered = true

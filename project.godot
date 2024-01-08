@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rumpus and Ruin"
-run/main_scene="res://Scenes/Entities/Environment/node_2d.tscn"
+run/main_scene="res://Scenes/Entities/Environment/play_level_map_1.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
