@@ -10,7 +10,7 @@ func update(delta):
 		return STATES.JUMP
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
-	if Player.velocity.x == 0:
+	if !Player.movement_input:
 		return STATES.IDLE
 	return null
 func enter_state():

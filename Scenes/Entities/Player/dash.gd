@@ -3,7 +3,7 @@ extends "state.gd"
 var dash_direction = Vector2.ZERO
 var dash_speed = 700
 var dashing = false
-
+@onready var animation = $"../../Animation"
 @export var dash_duration = 0.4
 @export var dash_cooldown = 1
 @onready var DashDuration_timer = $DashDuration
@@ -18,11 +18,13 @@ func enter_state():
 	Player.dash_count += 1
 	Player.can_dash = false
 	dashing = true
+	animation.play("Dash")
 	DashDuration_timer.start(dash_duration)
 	dash_direction = Player.last_direction
 	Player.velocity = dash_direction.normalized() * dash_speed
 	
 func exit_state():
+	animation.stop()
 	dashing = false
 
 
