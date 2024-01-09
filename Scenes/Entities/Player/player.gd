@@ -49,8 +49,8 @@ func _ready():
 	
 func _physics_process(delta):
 	player_input()
-	change_state(current_state.update(delta))
 	flip_sprite()
+	change_state(current_state.update(delta))
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
 	

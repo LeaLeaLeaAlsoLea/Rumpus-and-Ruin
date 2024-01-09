@@ -16,7 +16,6 @@ func update(delta):
 	
 func enter_state():
 	Player.jump_count += 1
-#	if Player.jump_input_actuation or jump_is_buffered:
 	Player.velocity.y = Player.JUMP_VELOCITY
 	animation.play("Jump")
 
