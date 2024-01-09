@@ -5,7 +5,7 @@ extends "state.gd"
 @onready var JumpBuffer = $JumpBuffer
 @export var jump_buffer_time = 0.1
 @export var jump_is_buffered = false
-
+@onready var animation = $"../../Animation"
 var can_jump = true
 
 func update(delta):
@@ -15,7 +15,7 @@ func update(delta):
 		return STATES.DASH
 	if Player.get_next_to_wall() != null:
 		return STATES.SLIDE
-	if (Player.jump_input_actuation and can_jump) or (Player.jump_input and Player.jump_count < Player.jump_max):
+	if (Player.jump_input_actuation and can_jump) or (Player.jump_input_actuation and Player.jump_count < Player.jump_max):
 		return STATES.JUMP
 	elif Player.jump_input and Player.jump_count >= Player.jump_max:
 		JumpBuffer.start(jump_buffer_time)
@@ -35,6 +35,7 @@ func enter_state():
 		CyoteTime.start(cyote_duration)
 	else: 
 		can_jump = false
+	animation.play("Fall")
 
 
 

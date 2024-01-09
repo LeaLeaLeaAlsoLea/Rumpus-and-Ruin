@@ -2,7 +2,7 @@ extends "state.gd"
 
 @export var climb_speed = 50
 @export var slide_friction = 0.7
-
+@onready var animation = $"../../Animation"
 # Called when the node enters the scene tree for the first time.
 func update(delta):
 	slide_movement(delta)
@@ -23,4 +23,5 @@ func slide_movement(delta):
 	
 func enter_state():
 	Player.jump_count = 0
+	animation.play("WallClimb")
 	pass

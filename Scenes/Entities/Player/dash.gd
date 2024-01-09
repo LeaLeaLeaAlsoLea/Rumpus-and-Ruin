@@ -20,9 +20,12 @@ func enter_state():
 	dashing = true
 	animation.play("Dash")
 	DashDuration_timer.start(dash_duration)
-	dash_direction = Player.last_direction
+	if Player.prev_state == STATES.SLIDE:
+		dash_direction = -Player.last_direction
+	else:
+		dash_direction = Player.last_direction
 	Player.velocity = dash_direction.normalized() * dash_speed
-	
+
 func exit_state():
 	animation.stop()
 	dashing = false

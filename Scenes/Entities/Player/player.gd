@@ -117,9 +117,9 @@ func player_input():
 		dash_input = false 
 	
 func flip_sprite():
-	if movement_input.x > 0:
+	if velocity.x > 0:
 		animation.flip_h = false
-	elif movement_input.x <0:
+	elif velocity.x <0:
 		animation.flip_h = true
 
 func add_coin():
