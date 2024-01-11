@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://0j5a7la2ek5x"]
+[gd_scene load_steps=43 format=3 uid="uid://0j5a7la2ek5x"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/Player/player.gd" id="1_tqwte"]
 [ext_resource type="Texture2D" uid="uid://cnpoucb6pgp4d" path="res://Art/goblinidle.png" id="2_80tam"]
 [ext_resource type="Texture2D" uid="uid://bo6r77ayeyur5" path="res://Art/Spritesheet.png" id="2_epxq1"]
+[ext_resource type="Texture2D" uid="uid://celh8tocnmx1p" path="res://Art/dash.png" id="2_hu0gg"]
 [ext_resource type="Texture2D" uid="uid://dib5n5nsedugi" path="res://Art/goblinjump.png" id="2_xntd8"]
 [ext_resource type="PackedScene" uid="uid://d2xy5gr6ra8ke" path="res://Scenes/Entities/Player/idle.tscn" id="3_2j68f"]
 [ext_resource type="Script" path="res://Scenes/Entities/Player/STATES.gd" id="3_lhk0h"]
@@ -12,6 +13,26 @@
 [ext_resource type="PackedScene" uid="uid://b88syj014uqfm" path="res://Scenes/Entities/Player/move.tscn" id="6_00mlv"]
 [ext_resource type="PackedScene" uid="uid://tnt6srl70c56" path="res://Scenes/Entities/Player/jump_actuation.tscn" id="8_ve3ph"]
 [ext_resource type="PackedScene" uid="uid://bue7dd21a1jng" path="res://Scenes/Entities/Player/dash.tscn" id="8_xxncj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c71nr"]
+atlas = ExtResource("2_hu0gg")
+region = Rect2(0, 0, 1080, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w508i"]
+atlas = ExtResource("2_hu0gg")
+region = Rect2(1080, 0, 1080, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwbi6"]
+atlas = ExtResource("2_hu0gg")
+region = Rect2(2160, 0, 1080, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enf3l"]
+atlas = ExtResource("2_hu0gg")
+region = Rect2(0, 1080, 1080, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlw2u"]
+atlas = ExtResource("2_hu0gg")
+region = Rect2(1080, 1080, 1080, 1080)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y55kr"]
 atlas = ExtResource("2_80tam")
@@ -105,6 +126,26 @@ region = Rect2(5400, 0, 1080, 1080)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_c71nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w508i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwbi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enf3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlw2u")
+}],
+"loop": true,
+"name": &"Dash",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y55kr")
 }, {
 "duration": 1.0,
@@ -196,8 +237,8 @@ script = ExtResource("1_tqwte")
 position = Vector2(-4, -16.5)
 scale = Vector2(0.0833333, 0.0898148)
 sprite_frames = SubResource("SpriteFrames_btfp7")
-animation = &"Idle"
-frame_progress = 0.191358
+animation = &"Dash"
+frame_progress = 0.766126
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -17)

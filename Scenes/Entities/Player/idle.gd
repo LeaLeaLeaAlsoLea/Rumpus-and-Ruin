@@ -13,7 +13,7 @@ func update(delta):
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
 	animation.play("Idle")
-	return null
+
 func enter_state():
 	Player.jump_count = 0
 	
