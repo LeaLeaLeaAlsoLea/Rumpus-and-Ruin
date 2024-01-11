@@ -86,6 +86,7 @@ position = Vector2(315, 787)
 scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_06imc")]
+visibility_layer = 257
 position = Vector2(449, 407)
 
 [node name="Coin" parent="." instance=ExtResource("4_w1u8w")]
