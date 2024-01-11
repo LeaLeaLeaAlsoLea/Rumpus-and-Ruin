@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckwo0n3v64ikl"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Environment/enemy_a.gd" id="1_4jtqi"]
+[ext_resource type="Texture2D" uid="uid://d26s07ukls7ei" path="res://icon.svg" id="1_grh44"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fouif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_grh44")
+}],
+"loop": true,
+"name": &"enemy_a_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqjft"]
+radius = 195.502
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrt5m"]
+size = Vector2(126, 126)
+
+[node name="Enemy_A" type="CharacterBody2D"]
+collision_layer = 33
+collision_mask = 33
+script = ExtResource("1_4jtqi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fouif")
+animation = &"enemy_a_idle"
+
+[node name="detection_area" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_nqjft")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vrt5m")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o30lp5g0x3em"]
+[gd_scene load_steps=12 format=3 uid="uid://o30lp5g0x3em"]
 
 [ext_resource type="PackedScene" uid="uid://cqrhwq1u3elfk" path="res://Scenes/Entities/Environment/Tile Map 1.tscn" id="1_nx5kn"]
 [ext_resource type="PackedScene" uid="uid://0j5a7la2ek5x" path="res://Scenes/Entities/Player/player.tscn" id="2_06imc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Entities/Environment/HUD.gd" id="5_iud4u"]
 [ext_resource type="Texture2D" uid="uid://b1w00ld25mh4" path="res://Art/coin art/01.png" id="5_wya76"]
 [ext_resource type="FontFile" uid="uid://g46vk051ni4x" path="res://Font/FranxurterTotallyMedium-gxwjp.ttf" id="6_0je8f"]
+[ext_resource type="PackedScene" uid="uid://ckwo0n3v64ikl" path="res://Scenes/Entities/Environment/enemy_a.tscn" id="8_8lhnn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dlvue"]
 texture = ExtResource("2_680qi")
@@ -141,6 +142,9 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.537255)
 theme_override_fonts/font = ExtResource("6_0je8f")
 theme_override_font_sizes/font_size = 40
 text = "##"
+
+[node name="Enemy_A" parent="." instance=ExtResource("8_8lhnn")]
+position = Vector2(1107, 307)
 
 [connection signal="coin_collected" from="Coin" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="Coin2" to="HUD" method="_on_coin_collected"]

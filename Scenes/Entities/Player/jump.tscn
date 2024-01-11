@@ -5,7 +5,7 @@
 [node name="JUMP" type="Node"]
 script = ExtResource("1_qbd8m")
 
-[node name="JumpBuffer" type="Timer" parent="."]
+[node name="Jump_buffer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="JumpBuffer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Jump_buffer" to="." method="_on_timer_timeout"]
