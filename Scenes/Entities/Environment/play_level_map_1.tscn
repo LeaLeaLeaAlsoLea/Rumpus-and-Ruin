@@ -74,6 +74,7 @@ corner_radius_bottom_left = 20
 [node name="Play Level Map 1" type="Node2D"]
 
 [node name="Sky BG Map" type="TileMap" parent="."]
+visible = false
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_1ocnw")
 cell_quadrant_size = 32

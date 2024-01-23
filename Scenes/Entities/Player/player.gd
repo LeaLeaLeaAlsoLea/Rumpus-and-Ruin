@@ -13,6 +13,7 @@ var jump_input_actuation = false
 var jump_input_released = false
 var climb_input = false
 var dash_input = false
+var attack_input = true
 
 #player_movement
 const SPEED = 450.0
@@ -35,8 +36,7 @@ var prev_state = null
 #nodes
 @onready var Raycasts = $Raycasts
 @onready var STATES = $STATES
-@onready var animation = $Animation
-
+@onready var animation = $Sprite2D
 #interactibles
 var coins = 0
 
@@ -53,6 +53,7 @@ func _physics_process(delta):
 	change_state(current_state.update(delta))
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
+	print(movement_input)
 	
 func gravity(delta):
 	if not is_on_floor():
@@ -74,8 +75,10 @@ func get_next_to_wall():
 		raycast.force_raycast_update()
 		if raycast.is_colliding():
 			if raycast.target_position.x > 0:
+				animation.flip_h = true
 				return Vector2.RIGHT
 			else:
+				animation.flip_h = false
 				return Vector2.LEFT
 	return null
 	
@@ -104,17 +107,16 @@ func player_input():
 	else:
 		jump_input_released = false
 		
-	#climb
-	if Input.is_action_pressed("climb"):
-		climb_input = true
-	else:
-		climb_input = false 
-		
 	#dash
 	if Input.is_action_just_pressed("dash"):
 		dash_input = true
 	else:
 		dash_input = false 
+		
+	if Input.is_action_just_pressed("attack"):
+		attack_input = true
+	else:
+		attack_input = false
 	
 func flip_sprite():
 	if velocity.x > 0:
@@ -124,3 +126,4 @@ func flip_sprite():
 
 func add_coin():
 	coins += 1
+

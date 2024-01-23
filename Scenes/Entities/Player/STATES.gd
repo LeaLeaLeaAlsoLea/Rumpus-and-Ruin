@@ -6,6 +6,7 @@ extends Node
 @onready var FALL = $FALL
 @onready var DASH = $DASH
 @onready var SLIDE = $SLIDE
+@onready var ATTACK = $ATTACK
 
 func enter_state():
 	pass
