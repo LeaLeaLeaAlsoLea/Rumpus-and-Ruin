@@ -7,7 +7,7 @@ func update(delta):
 	
 	if Player.velocity.y > 0:
 		return STATES.FALL
-	if Player.jump_input_actuation:
+	if Player.jump_input_actuation and Player.can_jump:
 		return STATES.JUMP
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
@@ -15,8 +15,8 @@ func update(delta):
 		return STATES.IDLE
 	if Player.attack_input:
 		return STATES.ATTACK
+		
 func enter_state():
-#	Player.jump_count = 0
 	animation.play("Run")
 	
 func exit_state():

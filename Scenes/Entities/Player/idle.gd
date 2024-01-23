@@ -6,7 +6,7 @@ func update(delta):
 	player_movement(delta)
 	if Player.movement_input.x != 0:
 		return STATES.MOVE
-	if Player.jump_input_actuation == true and Player.jump_count <= Player.jump_max:
+	if Player.jump_input_actuation and Player.can_jump:
 		return STATES.JUMP
 	if Player.velocity.y > 0:
 		return STATES.FALL
@@ -17,5 +17,4 @@ func update(delta):
 	
 
 func enter_state():
-	Player.jump_count = 0
 	animation.play("Idle")

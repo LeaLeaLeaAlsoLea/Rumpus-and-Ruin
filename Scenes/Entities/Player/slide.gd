@@ -8,7 +8,7 @@ func update(delta):
 	slide_movement(delta)
 	if Player.get_next_to_wall() == null:
 		return STATES.FALL
-	if Player.jump_input_actuation and Player.jump_count <= Player.jump_max:
+	if Player.jump_input_actuation and Player.can_jump:
 		return STATES.JUMP
 	if Player.is_on_floor() and Player.movement_input.x != 0:
 		return STATES.IDLE
@@ -20,6 +20,6 @@ func slide_movement(delta):
 	Player.velocity.y = move_toward(Player.velocity.y,0.0,Player.FRICTION * delta)
 	
 func enter_state():
-	Player.jump_count = 0
+	Player.can_jump = true
 	animation.play("WallClimb")
 	pass

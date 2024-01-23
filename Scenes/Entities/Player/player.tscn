@@ -778,7 +778,7 @@ target_position = Vector2(-21, 0)
 collision_mask = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_oap4p")
 }
+autoplay = "Idle"

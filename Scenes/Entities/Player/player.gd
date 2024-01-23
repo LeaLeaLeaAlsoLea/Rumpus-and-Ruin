@@ -26,8 +26,9 @@ var last_direction = Vector2.RIGHT
 var can_dash = true
 var dash_count = 0
 var dash_max = 2
-var jump_count = 0
-var jump_max = 2
+#var jump_count = 0
+#var jump_max = 2
+var can_jump = true
 
 #states
 var current_state = null
@@ -50,10 +51,11 @@ func _ready():
 func _physics_process(delta):
 	player_input()
 	flip_sprite()
+	player_can_jump()
 	change_state(current_state.update(delta))
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
-	print(movement_input)
+#	print(movement_input)
 	
 func gravity(delta):
 	if not is_on_floor():
@@ -69,6 +71,7 @@ func change_state(input_state):
 		
 		prev_state.exit_state()
 		current_state.enter_state()
+		print($Label.text)
 		
 func get_next_to_wall():
 	for raycast in Raycasts.get_children():
@@ -82,6 +85,7 @@ func get_next_to_wall():
 				return Vector2.LEFT
 	return null
 	
+		
 func player_input():
 	movement_input = Vector2.ZERO
 	if Input.is_action_pressed("right"):
@@ -123,7 +127,11 @@ func flip_sprite():
 		animation.flip_h = false
 	elif velocity.x <0:
 		animation.flip_h = true
-
+		
+func player_can_jump():
+	if is_on_floor():
+		can_jump = true
+		
 func add_coin():
 	coins += 1
 

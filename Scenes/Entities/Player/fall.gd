@@ -11,18 +11,18 @@ var can_jump = true
 func update(delta):
 	Player.gravity_fall(delta)
 	player_movement(delta)
-	if Player.dash_input and Player.can_dash:
-		return STATES.DASH
 	if Player.get_next_to_wall() != null and Player.jump_input:
 		return STATES.SLIDE
-	elif (Player.jump_input_actuation and can_jump) or (Player.jump_input_actuation and Player.jump_count < Player.jump_max):
+	if Player.jump_input_actuation and Player.can_jump:
 		return STATES.JUMP
-	elif Player.jump_input_actuation and Player.jump_count == Player.jump_max:
+	if Player.jump_input_actuation and !Player.can_jump:
 		JumpBuffer.start(jump_buffer_time)
 		jump_is_buffered = true
-	elif jump_is_buffered and Player.is_on_floor():
-		Player.jump_count = 0
+	if jump_is_buffered and Player.is_on_floor():
 		return STATES.JUMP
+	if Player.dash_input and Player.can_dash:
+		return STATES.DASH
+
 	if Player.is_on_floor() and Player.movement_input.x != 0:
 		return STATES.MOVE
 	if Player.is_on_floor() and Player.movement_input.x == 0:
